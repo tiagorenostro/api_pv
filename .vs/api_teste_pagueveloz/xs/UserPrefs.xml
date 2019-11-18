@@ -1,0 +1,20 @@
+﻿<Properties StartupConfiguration="{4F920E49-0E52-4732-B30C-59CD8A85E9CC}|">
+  <MonoDevelop.Ide.ItemProperties.api__teste__pagueveloz PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="api_teste_pagueveloz/Services/CalculaParticipacaoServices.cs">
+    <Files>
+      <File FileName="api_teste_pagueveloz/Models/Funcionario.cs" Line="8" Column="28" />
+      <File FileName="api_teste_pagueveloz/Models/Empresa.cs" />
+      <File FileName="api_teste_pagueveloz/Services/CalculaParticipacaoServices.cs" Line="1" Column="1" />
+      <File FileName="api_teste_pagueveloz/Services/FuncionarioServices.cs" />
+      <File FileName="api_teste_pagueveloz/Services/ValorDistribuirServices.cs" />
+      <File FileName="api_teste_pagueveloz/Models/ConexaoDb.cs" />
+      <File FileName="api_teste_pagueveloz/Controllers/FuncionarioController.cs" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

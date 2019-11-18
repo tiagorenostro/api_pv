@@ -1,0 +1,64 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/tiagorenostro/Projects/api_teste_pagueveloz/services/services.csproj": {}
+  },
+  "projects": {
+    "/Users/tiagorenostro/Projects/api_teste_pagueveloz/services/services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/tiagorenostro/Projects/api_teste_pagueveloz/services/services.csproj",
+        "projectName": "services",
+        "projectPath": "/Users/tiagorenostro/Projects/api_teste_pagueveloz/services/services.csproj",
+        "packagesPath": "/Users/tiagorenostro/.nuget/packages/",
+        "outputPath": "/Users/tiagorenostro/Projects/api_teste_pagueveloz/services/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/tiagorenostro/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

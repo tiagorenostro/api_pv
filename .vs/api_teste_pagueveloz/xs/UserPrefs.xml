@@ -2,14 +2,27 @@
   <MonoDevelop.Ide.ItemProperties.api__teste__pagueveloz PreferredExecutionTarget="/Applications/Safari.app" />
   <MonoDevelop.Ide.Workbench ActiveDocument="api_teste_pagueveloz/Services/CalculaParticipacaoServices.cs">
     <Files>
-      <File FileName="api_teste_pagueveloz/Models/Funcionario.cs" Line="8" Column="28" />
-      <File FileName="api_teste_pagueveloz/Models/Empresa.cs" />
-      <File FileName="api_teste_pagueveloz/Services/CalculaParticipacaoServices.cs" Line="1" Column="1" />
-      <File FileName="api_teste_pagueveloz/Services/FuncionarioServices.cs" />
-      <File FileName="api_teste_pagueveloz/Services/ValorDistribuirServices.cs" />
-      <File FileName="api_teste_pagueveloz/Models/ConexaoDb.cs" />
-      <File FileName="api_teste_pagueveloz/Controllers/FuncionarioController.cs" />
+      <File FileName="api_teste_pagueveloz/Services/CalculaParticipacaoServices.cs" Line="63" Column="1" />
+      <File FileName="api_teste_pagueveloz/DTO/EmpresaDTO.cs" Line="10" Column="50" />
+      <File FileName="api_teste_pagueveloz/Services/FuncionarioServices.cs" Line="12" Column="20" />
+      <File FileName="api_teste_pagueveloz/Controllers/FuncionarioController.cs" Line="13" Column="43" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="api_teste_pagueveloz" expanded="True">
+            <Node name="api_teste_pagueveloz" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="DTO" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Services" expanded="True">
+                <Node name="CalculaParticipacaoServices.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

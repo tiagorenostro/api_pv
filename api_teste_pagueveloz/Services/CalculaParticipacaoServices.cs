@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using api_teste_pagueveloz.Models;
+using api_teste_pagueveloz.DTO;
 
 namespace api_teste_pagueveloz.Services {
     public class CalculaParticipacaoService {
@@ -7,6 +8,9 @@ namespace api_teste_pagueveloz.Services {
         public Empresa empresa = new Empresa();
         public List<Funcionario> lista_funcionarios = new List<Funcionario>();
         public List<Empresa> lista_empresa = new List<Empresa>();
+        public EmpresaDTO empDto = new EmpresaDTO();
+        public List<EmpresaDTO> empDtoList = new List<EmpresaDTO>();
+        public FuncionarioServices funcServ = new FuncionarioServices();
 
         public void CalculaParticipacao() {
             lista_funcionarios = conexao.BuscaFuncionarioDb();
@@ -32,7 +36,7 @@ namespace api_teste_pagueveloz.Services {
             }
         }
 
-        public IEnumerable<Empresa> CalculaEmpresa() {
+        public IEnumerable<EmpresaDTO> CalculaEmpresa() {
             CalculaParticipacao();
             empresa._TotalFuncionarios();
             empresa._TotalDistribuidos();
@@ -56,8 +60,15 @@ namespace api_teste_pagueveloz.Services {
                 conexao.SalvaDados(1, 1, "Empresa/", atualiza_empresa);
 
                 lista_empresa[i].participacoes = empresa.participacoes;
+
+                empDto.participacoes = funcServ.ObterFuncionario();
+                empDto.TotalFuncionarios = empresa.TotalFuncionarios;
+                empDto.TotalDisponibilizado = empresa.TotalDisponibilizado;
+                empDto.TotalDistribuidos = empresa.TotalDistribuidos;
+                empDto.SaldoTotalDisponibilizado = empresa.SaldoTotalDisponibilizado;
+                empDtoList.Add(empDto);
             }
-            return lista_empresa;
+            return empDtoList;
         }
     }
 }

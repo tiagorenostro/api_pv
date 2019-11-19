@@ -129,6 +129,7 @@
     <Folder Include="Models\" />
     <Folder Include="Scripts\" />
     <Folder Include="Services\" />
+    <Folder Include="DTO\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
@@ -173,6 +174,8 @@
     <Compile Include="Models\ConexaoDb.cs" />
     <Compile Include="Services\ValorDistribuirServices.cs" />
     <Compile Include="Services\CalculaParticipacaoServices.cs" />
+    <Compile Include="DTO\FuncionarioDTO.cs" />
+    <Compile Include="DTO\EmpresaDTO.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />

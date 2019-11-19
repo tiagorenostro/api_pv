@@ -1,21 +1,29 @@
 ﻿using System.Collections.Generic;
 using api_teste_pagueveloz.Models;
+using api_teste_pagueveloz.DTO;
 
 namespace api_teste_pagueveloz.Services {
     public class FuncionarioServices {
 
         private readonly ConexaoDb conexao = new ConexaoDb();
+        private List<FuncionarioDTO> funcDtoList = new List<FuncionarioDTO>();
+        public FuncionarioDTO funcDto;
 
-        public IEnumerable<Funcionario> ObterFuncionario() {
-
+        public List<FuncionarioDTO> ObterFuncionario() {
             List<Funcionario> lista_funcionario = conexao.BuscaFuncionarioDb();
 
             for (int i = 0; i < lista_funcionario.Count; i++) {
+                funcDto = new FuncionarioDTO();
                 if (lista_funcionario[i] == null) {
                     lista_funcionario.Remove(lista_funcionario[i]);
+                } else {
+                    funcDto.Matricula = lista_funcionario[i].Matricula;
+                    funcDto.Nome = lista_funcionario[i].Nome;
+                    funcDto.ValorParticipacao = lista_funcionario[i].ValorParticipacao;
+                    funcDtoList.Add(funcDto);
                 }
             }
-            return lista_funcionario;
+            return funcDtoList;
         }
 
         public void SalvaFuncionario(List<IDictionary<string, string>> dados_funcionario) {

@@ -2,59 +2,59 @@
 
 namespace api_teste_pagueveloz.Models {
     public class Funcionario {
-        public int IdFuncionario;
-        public string Matricula;
-        public string Nome;
-        public string Area;
-        public string Cargo;
-        public decimal SalarioBruto;
-        public string DataAdmissao;
-        public decimal ValorParticipacao;
+        public int idFuncionario;
+        public string matricula;
+        public string nome;
+        public string area;
+        public string cargo;
+        public decimal salarioBruto;
+        public string dataAdmissao;
+        public decimal valorParticipacao;
 
         public int DefinirPesoAreaAtuacao() {
-            string[] area = {"Diretoria", "Contabilidade",
+            string[] areaVet = {"Diretoria", "Contabilidade",
         "Financeiro", "Tecnologia", "Serviços Gerais", "Relacionamento com o Cliente"};
-            if (Area == area[0]) {
+            if (area == areaVet[0]) {
                 return (int)Peso.Peso_1;
-            } else if (Area == area[1]) {
+            } else if (area == areaVet[1]) {
                 return (int)Peso.Peso_2;
-            } else if (Area == area[2]) {
+            } else if (area == areaVet[2]) {
                 return (int)Peso.Peso_2;
-            } else if (Area == area[3]) {
+            } else if (area == areaVet[3]) {
                 return (int)Peso.Peso_2;
-            } else if (Area == area[4]) {
+            } else if (area == areaVet[4]) {
                 return (int)Peso.Peso_3;
-            } else if (Area == area[5]) {
+            } else if (area == areaVet[5]) {
                 return (int)Peso.Peso_5;
             }
             return 0;
         }
 
         public int DefinirPesoFaixaSalarial() {
-            decimal salario_minimo = 998.00M;
-            decimal faixa_salarial = SalarioBruto / salario_minimo;
+            decimal salarioMinimo = 998.00M;
+            decimal faixaSalarial = salarioBruto / salarioMinimo;
 
-            if (faixa_salarial > 8) {
+            if (faixaSalarial > 8) {
                 return (int)Peso.Peso_5;
-            } else if (faixa_salarial > 5 && faixa_salarial < 8) {
+            } else if (faixaSalarial > 5 && faixaSalarial < 8) {
                 return (int)Peso.Peso_3;
-            } else if (faixa_salarial > 3 && faixa_salarial <= 5) {
+            } else if (faixaSalarial > 3 && faixaSalarial <= 5) {
                 return (int)Peso.Peso_2;
-            } else if (faixa_salarial <= 3) {
+            } else if (faixaSalarial <= 3) {
                 return (int)Peso.Peso_1;
             }
             return 0;
         }
 
         public int DefinirPesoTempoAdmissao() {
-            DateTime data_atual, data_admissao;
-            string str_data_atual = (DateTime.Now.ToString("yyyy-MM-dd"));
+            DateTime dtDataAtual, dtDataAdmissao;
+            string strDataAtual = (DateTime.Now.ToString("yyyy-MM-dd"));
             TimeSpan resultado;
 
-            data_atual = DateTime.Parse(str_data_atual);
-            data_admissao = DateTime.Parse(DataAdmissao);
+            dtDataAtual = DateTime.Parse(strDataAtual);
+            dtDataAdmissao = DateTime.Parse(dataAdmissao);
 
-            resultado = data_atual - data_admissao;
+            resultado = dtDataAtual - dtDataAdmissao;
 
             if (resultado.Days / 365 <= 1) {
                 return (int)Peso.Peso_1;
@@ -67,11 +67,12 @@ namespace api_teste_pagueveloz.Models {
             }
             return 0;
         }
+
         public void CalculaParticipacao() {
-            decimal a = (SalarioBruto * DefinirPesoTempoAdmissao()) + (SalarioBruto * DefinirPesoAreaAtuacao());
-            decimal b = (SalarioBruto * DefinirPesoFaixaSalarial());
+            decimal a = (salarioBruto * DefinirPesoTempoAdmissao()) + (salarioBruto * DefinirPesoAreaAtuacao());
+            decimal b = (salarioBruto * DefinirPesoFaixaSalarial());
             decimal c = (Math.Round(a, 2) / Math.Round(b, 2)) * 12;
-            ValorParticipacao = Math.Round(c, 2);
+            valorParticipacao = Math.Round(c, 2);
         }
     }
 

@@ -6,20 +6,20 @@ using api_teste_pagueveloz.DTO;
 
 namespace api_teste_pagueveloz.Controllers{
     public class FuncionarioController : ApiController {
-        public List<FuncionarioDTO> listFuncDto = new List<FuncionarioDTO>();
-        private readonly FuncionarioServices func_services = new FuncionarioServices();
+        public List<FuncionarioDTO> listaFuncDTO = new List<FuncionarioDTO>();
+        private readonly FuncionarioServices funcServices = new FuncionarioServices();
 
         [HttpGet]
         [Route("api/Empresa/Funcionario")]
         public List<FuncionarioDTO> GetFuncionarios() {
-            listFuncDto = func_services.ObterFuncionario();
-            return listFuncDto;
+            listaFuncDTO = funcServices.ObterFuncionario();
+            return listaFuncDTO;
         }
 
         [HttpPost]
         [Route("api/Empresa/Funcionario")]
-        public HttpStatusCode PostFuncionario([FromBody] List<IDictionary<string, string>> post_funcionario) {
-            func_services.SalvaFuncionario(post_funcionario);
+        public HttpStatusCode PostFuncionario([FromBody] List<IDictionary<string, string>> postFuncionario) {
+            funcServices.SalvaFuncionario(postFuncionario);
             return HttpStatusCode.OK;
         } 
     }

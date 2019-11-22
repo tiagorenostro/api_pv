@@ -6,14 +6,14 @@ using api_teste_pagueveloz.DTO;
 
 namespace api_teste_pagueveloz.Controllers {
     public class CalculaParticipacaoController : ApiController {
-        public List<EmpresaDTO> empDtoList = new List<EmpresaDTO>();
-        private readonly CalculaParticipacaoService calcula_participacao_service = new CalculaParticipacaoService();
+        public List<EmpresaDTO> listaEmpresaDTO = new List<EmpresaDTO>();
+        private readonly CalculaParticipacaoService calculaParticipacaoServ = new CalculaParticipacaoService();
 
         [HttpGet]
         [Route("api/Empresa/Calcula")]
         public IEnumerable<EmpresaDTO> GetCalculaPLR() {
-            empDtoList = (List<EmpresaDTO>)calcula_participacao_service.CalculaEmpresa();
-            return empDtoList;
+            listaEmpresaDTO = (List<EmpresaDTO>)calculaParticipacaoServ.CalculaEmpresa();
+            return listaEmpresaDTO;
         }
     }
 }

@@ -6,69 +6,69 @@ namespace api_teste_pagueveloz.Services {
     public class CalculaParticipacaoService {
         private readonly ConexaoDb conexao = new ConexaoDb();
         public Empresa empresa = new Empresa();
-        public List<Funcionario> lista_funcionarios = new List<Funcionario>();
-        public List<Empresa> lista_empresa = new List<Empresa>();
-        public EmpresaDTO empDto = new EmpresaDTO();
-        public List<EmpresaDTO> empDtoList = new List<EmpresaDTO>();
+        public List<Funcionario> listaFuncionarios = new List<Funcionario>();
+        public List<Empresa> listaEmpresa = new List<Empresa>();
+        public EmpresaDTO empresaDTO = new EmpresaDTO();
+        public List<EmpresaDTO> listaEmpresaDTO = new List<EmpresaDTO>();
         public FuncionarioServices funcServ = new FuncionarioServices();
 
         public void CalculaParticipacao() {
-            lista_funcionarios = conexao.BuscaFuncionarioDb();
+            listaFuncionarios = conexao.BuscaFuncionarioDb();
 
-            for (int i = 0; i < lista_funcionarios.Count; i++) {
-                if (lista_funcionarios[i] == null) {
-                    lista_funcionarios.Remove(lista_funcionarios[i]);
+            for (int i = 0; i < listaFuncionarios.Count; i++) {
+                if (listaFuncionarios[i] == null) {
+                    listaFuncionarios.Remove(listaFuncionarios[i]);
                 }
-                lista_funcionarios[i].CalculaParticipacao();
-                empresa.participacoes.Add(lista_funcionarios[i]);
+                listaFuncionarios[i].CalculaParticipacao();
+                empresa.participacoes.Add(listaFuncionarios[i]);
 
-                var atualiza_valor_participacao = new Funcionario {
-                    IdFuncionario = lista_funcionarios[i].IdFuncionario,
-                    Matricula = lista_funcionarios[i].Matricula,
-                    Nome = lista_funcionarios[i].Nome,
-                    Area = lista_funcionarios[i].Area,
-                    Cargo = lista_funcionarios[i].Cargo,
-                    SalarioBruto = lista_funcionarios[i].SalarioBruto,
-                    DataAdmissao = lista_funcionarios[i].DataAdmissao,
-                    ValorParticipacao = lista_funcionarios[i].ValorParticipacao
+                var atualizaValorParticipacao = new Funcionario {
+                    idFuncionario = listaFuncionarios[i].idFuncionario,
+                    matricula = listaFuncionarios[i].matricula,
+                    nome = listaFuncionarios[i].nome,
+                    area = listaFuncionarios[i].area,
+                    cargo = listaFuncionarios[i].cargo,
+                    salarioBruto = listaFuncionarios[i].salarioBruto,
+                    dataAdmissao = listaFuncionarios[i].dataAdmissao,
+                    valorParticipacao = listaFuncionarios[i].valorParticipacao
                 };
-                conexao.SalvaDados(1, lista_funcionarios[i].IdFuncionario, "Funcionario/", atualiza_valor_participacao);
+                conexao.SalvaDados(1, listaFuncionarios[i].idFuncionario, "Funcionario/", atualizaValorParticipacao);
             }
         }
 
         public IEnumerable<EmpresaDTO> CalculaEmpresa() {
             CalculaParticipacao();
-            empresa._TotalFuncionarios();
-            empresa._TotalDistribuidos();
+            empresa.SetTotalFuncionarios();
+            empresa.SetTotalDistribuidos();
 
-            lista_empresa = conexao.BuscaEmpresaDb();
+            listaEmpresa = conexao.BuscaEmpresaDb();
 
-            for (int i = 0; i < lista_empresa.Count; i++) {
-                if (lista_empresa[i] == null) {
-                    lista_empresa.Remove(lista_empresa[i]);
+            for (int i = 0; i < listaEmpresa.Count; i++) {
+                if (listaEmpresa[i] == null) {
+                    listaEmpresa.Remove(listaEmpresa[i]);
                 }
 
-                empresa.TotalDisponibilizado = lista_empresa[i].TotalDisponibilizado;
-                empresa._SaldoTotalDisponibilizado();
+                empresa.totalDisponibilizado = listaEmpresa[i].totalDisponibilizado;
+                empresa.SetSaldoTotalDisponibilizado();
 
-                var atualiza_empresa = new Empresa {
-                    TotalFuncionarios = empresa.TotalFuncionarios,
-                    TotalDistribuidos = empresa.TotalDistribuidos,
-                    TotalDisponibilizado = empresa.TotalDisponibilizado,
-                    SaldoTotalDisponibilizado = empresa.SaldoTotalDisponibilizado,
+                var atualizaEmpresa = new Empresa {
+                    totalFuncionarios = empresa.totalFuncionarios,
+                    totalDistribuidos = empresa.totalDistribuidos,
+                    totalDisponibilizado = empresa.totalDisponibilizado,
+                    saldoTotalDisponibilizado = empresa.saldoTotalDisponibilizado,
                 };
-                conexao.SalvaDados(1, 1, "Empresa/", atualiza_empresa);
+                conexao.SalvaDados(1, 1, "Empresa/", atualizaEmpresa);
 
-                lista_empresa[i].participacoes = empresa.participacoes;
+                listaEmpresa[i].participacoes = empresa.participacoes;
 
-                empDto.participacoes = funcServ.ObterFuncionario();
-                empDto.TotalFuncionarios = empresa.TotalFuncionarios;
-                empDto.TotalDisponibilizado = empresa.TotalDisponibilizado;
-                empDto.TotalDistribuidos = empresa.TotalDistribuidos;
-                empDto.SaldoTotalDisponibilizado = empresa.SaldoTotalDisponibilizado;
-                empDtoList.Add(empDto);
+                empresaDTO.participacoes = funcServ.ObterFuncionario();
+                empresaDTO.totalFuncionarios = empresa.totalFuncionarios;
+                empresaDTO.totalDisponibilizado = empresa.totalDisponibilizado;
+                empresaDTO.totalDistribuidos = empresa.totalDistribuidos;
+                empresaDTO.saldoTotalDisponibilizado = empresa.saldoTotalDisponibilizado;
+                listaEmpresaDTO.Add(empresaDTO);
             }
-            return empDtoList;
+            return listaEmpresaDTO;
         }
     }
 }

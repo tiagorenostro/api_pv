@@ -3,22 +3,22 @@
 namespace api_teste_pagueveloz.Models {
     public class Empresa {
         public List<Funcionario> participacoes = new List<Funcionario>(); 
-        public int TotalFuncionarios; 
-        public decimal TotalDistribuidos; 
-        public decimal TotalDisponibilizado;
-        public decimal SaldoTotalDisponibilizado; 
+        public int totalFuncionarios; 
+        public decimal totalDistribuidos; 
+        public decimal totalDisponibilizado;
+        public decimal saldoTotalDisponibilizado; 
 
-        public void _TotalFuncionarios() {
-            TotalFuncionarios = participacoes.Count;
+        public void SetTotalFuncionarios() {
+            totalFuncionarios = participacoes.Count;
         }
 
-        public void _SaldoTotalDisponibilizado() {
-            SaldoTotalDisponibilizado = TotalDisponibilizado - TotalDistribuidos;
+        public void SetSaldoTotalDisponibilizado() {
+            saldoTotalDisponibilizado = totalDisponibilizado - totalDistribuidos;
         }
 
-        public void _TotalDistribuidos() {
+        public void SetTotalDistribuidos() {
             foreach (Funcionario f in participacoes) {
-                TotalDistribuidos += f.ValorParticipacao;
+                totalDistribuidos += f.valorParticipacao;
             }
         }
     }

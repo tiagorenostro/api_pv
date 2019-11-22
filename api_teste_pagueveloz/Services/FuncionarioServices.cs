@@ -6,45 +6,45 @@ namespace api_teste_pagueveloz.Services {
     public class FuncionarioServices {
 
         private readonly ConexaoDb conexao = new ConexaoDb();
-        private List<FuncionarioDTO> funcDtoList = new List<FuncionarioDTO>();
-        public FuncionarioDTO funcDto;
+        private List<FuncionarioDTO> listaFuncDTO = new List<FuncionarioDTO>();
+        public FuncionarioDTO funcDTO;
 
         public List<FuncionarioDTO> ObterFuncionario() {
-            List<Funcionario> lista_funcionario = conexao.BuscaFuncionarioDb();
+            List<Funcionario> listaFuncionario = conexao.BuscaFuncionarioDb();
 
-            for (int i = 0; i < lista_funcionario.Count; i++) {
-                funcDto = new FuncionarioDTO();
-                if (lista_funcionario[i] == null) {
-                    lista_funcionario.Remove(lista_funcionario[i]);
+            for (int i = 0; i < listaFuncionario.Count; i++) {
+                funcDTO = new FuncionarioDTO();
+                if (listaFuncionario[i] == null) {
+                    listaFuncionario.Remove(listaFuncionario[i]);
                 } else {
-                    funcDto.Matricula = lista_funcionario[i].Matricula;
-                    funcDto.Nome = lista_funcionario[i].Nome;
-                    funcDto.ValorParticipacao = lista_funcionario[i].ValorParticipacao;
-                    funcDtoList.Add(funcDto);
+                    funcDTO.matricula = listaFuncionario[i].matricula;
+                    funcDTO.nome = listaFuncionario[i].nome;
+                    funcDTO.valorParticipacao = listaFuncionario[i].valorParticipacao;
+                    listaFuncDTO.Add(funcDTO);
                 }
             }
-            return funcDtoList;
+            return listaFuncDTO;
         }
 
-        public void SalvaFuncionario(List<IDictionary<string, string>> dados_funcionario) {
+        public void SalvaFuncionario(List<IDictionary<string, string>> dadosFuncionario) {
             int idFuncionario = 1;
-            string nome_chave = "Funcionario/";
+            string nomeChave = "Funcionario/";
 
-            for (int i = 0; i < dados_funcionario.Count; i++) {
-                string[] converte_string = dados_funcionario[i]["salario_bruto"].Split(' ');
-                decimal salario_bruto = decimal.Parse(converte_string[1]);
+            for (int i = 0; i < dadosFuncionario.Count; i++) {
+                string[] converteString = dadosFuncionario[i]["salario_bruto"].Split(' ');
+                decimal salarioBruto = decimal.Parse(converteString[1]);
 
-                var salva_funcionario = new Funcionario {
-                    IdFuncionario = idFuncionario,
-                    Matricula = dados_funcionario[i]["matricula"],
-                    Nome = dados_funcionario[i]["nome"],
-                    Area = dados_funcionario[i]["area"],
-                    Cargo = dados_funcionario[i]["cargo"],
-                    SalarioBruto = salario_bruto,
-                    DataAdmissao = dados_funcionario[i]["data_de_admissao"]
+                var salvaFuncionario = new Funcionario {
+                    idFuncionario = idFuncionario,
+                    matricula = dadosFuncionario[i]["matricula"],
+                    nome = dadosFuncionario[i]["nome"],
+                    area = dadosFuncionario[i]["area"],
+                    cargo = dadosFuncionario[i]["cargo"],
+                    salarioBruto = salarioBruto,
+                    dataAdmissao = dadosFuncionario[i]["data_de_admissao"]
                 };
 
-                conexao.SalvaDados(0, idFuncionario, nome_chave, salva_funcionario);
+                conexao.SalvaDados(0, idFuncionario, nomeChave, salvaFuncionario);
                 idFuncionario++;
             }
         }

@@ -1,4 +1,4 @@
-namespace api_teste_pagueveloz.Areas.HelpPage
+namespace Desafio.Areas.HelpPage
 {
     /// <summary>
     /// Indicates whether the sample is used for request or response

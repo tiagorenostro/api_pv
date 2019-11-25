@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
-using api_teste_pagueveloz.Models;
-using api_teste_pagueveloz.Services;
-using api_teste_pagueveloz.DTO;
+using Desafio.Services;
+using Desafio.DTO;
 
-namespace api_teste_pagueveloz.Controllers {
+namespace Desafio.Controllers {
     public class CalculaParticipacaoController : ApiController {
         public List<EmpresaDTO> listaEmpresaDTO = new List<EmpresaDTO>();
         private readonly CalculaParticipacaoService calculaParticipacaoServ = new CalculaParticipacaoService();

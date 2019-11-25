@@ -1,10 +1,10 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using api_teste_pagueveloz.Areas.HelpPage.ModelDescriptions;
-using api_teste_pagueveloz.Areas.HelpPage.Models;
+using Desafio.Areas.HelpPage.ModelDescriptions;
+using Desafio.Areas.HelpPage.Models;
 
-namespace api_teste_pagueveloz.Areas.HelpPage.Controllers
+namespace Desafio.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.

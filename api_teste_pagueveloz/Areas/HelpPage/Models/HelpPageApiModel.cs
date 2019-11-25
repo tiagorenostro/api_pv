@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http.Headers;
 using System.Web.Http.Description;
-using api_teste_pagueveloz.Areas.HelpPage.ModelDescriptions;
+using Desafio.Areas.HelpPage.ModelDescriptions;
 
-namespace api_teste_pagueveloz.Areas.HelpPage.Models
+namespace Desafio.Areas.HelpPage.Models
 {
     /// <summary>
     /// The model that represents an API displayed on the help page.

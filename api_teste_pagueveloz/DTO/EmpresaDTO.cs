@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using api_teste_pagueveloz.Models;
+using Desafio.Models;
 
-namespace api_teste_pagueveloz.DTO {
+namespace Desafio.DTO {
     public class EmpresaDTO {
         public List<FuncionarioDTO> participacoes = new List<FuncionarioDTO>();
         public int totalFuncionarios;

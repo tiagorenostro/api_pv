@@ -1,7 +1,7 @@
 using System.Web.Http;
 using System.Web.Mvc;
 
-namespace api_teste_pagueveloz.Areas.HelpPage
+namespace Desafio.Areas.HelpPage
 {
     public class HelpPageAreaRegistration : AreaRegistration
     {

@@ -1,1 +1,1 @@
-﻿<%@ Application Inherits="api_teste_pagueveloz.Global" %>
+﻿<%@ Application Inherits="Desafio.Global" %>

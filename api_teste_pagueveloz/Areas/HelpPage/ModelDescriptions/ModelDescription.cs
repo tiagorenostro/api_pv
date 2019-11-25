@@ -1,6 +1,6 @@
 using System;
 
-namespace api_teste_pagueveloz.Areas.HelpPage.ModelDescriptions
+namespace Desafio.Areas.HelpPage.ModelDescriptions
 {
     /// <summary>
     /// Describes a type model.

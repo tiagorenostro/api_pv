@@ -3,7 +3,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Http;
 
-namespace api_teste_pagueveloz {
+namespace Desafio {
     public class Global : HttpApplication {
         protected void Application_Start() {
             AreaRegistration.RegisterAllAreas();

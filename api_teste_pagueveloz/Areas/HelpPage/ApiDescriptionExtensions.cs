@@ -3,7 +3,7 @@ using System.Text;
 using System.Web;
 using System.Web.Http.Description;
 
-namespace api_teste_pagueveloz.Areas.HelpPage
+namespace Desafio.Areas.HelpPage
 {
     public static class ApiDescriptionExtensions
     {

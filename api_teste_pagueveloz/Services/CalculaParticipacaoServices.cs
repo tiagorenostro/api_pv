@@ -1,38 +1,36 @@
 ﻿using System.Collections.Generic;
-using api_teste_pagueveloz.Models;
-using api_teste_pagueveloz.DTO;
+using Desafio.Models;
+using Desafio.DTO;
+using api_teste_pagueveloz.Repositorio;
 
-namespace api_teste_pagueveloz.Services {
+namespace Desafio.Services {
     public class CalculaParticipacaoService {
-        private readonly ConexaoDb conexao = new ConexaoDb();
+        private Repositorio Repositorio = new Repositorio();
         public Empresa empresa = new Empresa();
         public List<Funcionario> listaFuncionarios = new List<Funcionario>();
         public List<Empresa> listaEmpresa = new List<Empresa>();
+        public FuncionarioServices funcServ = new FuncionarioServices();
         public EmpresaDTO empresaDTO = new EmpresaDTO();
         public List<EmpresaDTO> listaEmpresaDTO = new List<EmpresaDTO>();
-        public FuncionarioServices funcServ = new FuncionarioServices();
 
         public void CalculaParticipacao() {
-            listaFuncionarios = conexao.BuscaFuncionarioDb();
+            List<Funcionario> listaFuncRepo = (List<Funcionario>)Repositorio.ObterFuncionario();
 
-            for (int i = 0; i < listaFuncionarios.Count; i++) {
-                if (listaFuncionarios[i] == null) {
-                    listaFuncionarios.Remove(listaFuncionarios[i]);
-                }
-                listaFuncionarios[i].CalculaParticipacao();
-                empresa.participacoes.Add(listaFuncionarios[i]);
+            for (int i = 0; i < listaFuncRepo.Count; i++) {
+                listaFuncRepo[i].CalculaParticipacao();
+                empresa.participacoes.Add(listaFuncRepo[i]);
 
                 var atualizaValorParticipacao = new Funcionario {
-                    idFuncionario = listaFuncionarios[i].idFuncionario,
-                    matricula = listaFuncionarios[i].matricula,
-                    nome = listaFuncionarios[i].nome,
-                    area = listaFuncionarios[i].area,
-                    cargo = listaFuncionarios[i].cargo,
-                    salarioBruto = listaFuncionarios[i].salarioBruto,
-                    dataAdmissao = listaFuncionarios[i].dataAdmissao,
-                    valorParticipacao = listaFuncionarios[i].valorParticipacao
+                    idFuncionario = listaFuncRepo[i].idFuncionario,
+                    matricula = listaFuncRepo[i].matricula,
+                    nome = listaFuncRepo[i].nome,
+                    area = listaFuncRepo[i].area,
+                    cargo = listaFuncRepo[i].cargo,
+                    salarioBruto = listaFuncRepo[i].salarioBruto,
+                    dataAdmissao = listaFuncRepo[i].dataAdmissao,
+                    valorParticipacao = listaFuncRepo[i].valorParticipacao
                 };
-                conexao.SalvaDados(1, listaFuncionarios[i].idFuncionario, "Funcionario/", atualizaValorParticipacao);
+                Repositorio.Inserir(listaFuncRepo[i].idFuncionario, "Funcionario/", atualizaValorParticipacao);
             }
         }
 
@@ -41,14 +39,10 @@ namespace api_teste_pagueveloz.Services {
             empresa.SetTotalFuncionarios();
             empresa.SetTotalDistribuidos();
 
-            listaEmpresa = conexao.BuscaEmpresaDb();
+            List<Empresa> listaEmpRepo = (List<Empresa>)Repositorio.ObterEmpresa();
 
-            for (int i = 0; i < listaEmpresa.Count; i++) {
-                if (listaEmpresa[i] == null) {
-                    listaEmpresa.Remove(listaEmpresa[i]);
-                }
-
-                empresa.totalDisponibilizado = listaEmpresa[i].totalDisponibilizado;
+            for (int i = 0; i < listaEmpRepo.Count; i++) {
+                empresa.totalDisponibilizado = listaEmpRepo[i].totalDisponibilizado;
                 empresa.SetSaldoTotalDisponibilizado();
 
                 var atualizaEmpresa = new Empresa {
@@ -57,9 +51,9 @@ namespace api_teste_pagueveloz.Services {
                     totalDisponibilizado = empresa.totalDisponibilizado,
                     saldoTotalDisponibilizado = empresa.saldoTotalDisponibilizado,
                 };
-                conexao.SalvaDados(1, 1, "Empresa/", atualizaEmpresa);
+                Repositorio.Inserir(1, "Empresa/", atualizaEmpresa);
 
-                listaEmpresa[i].participacoes = empresa.participacoes;
+                listaEmpRepo[i].participacoes = empresa.participacoes;
 
                 empresaDTO.participacoes = funcServ.ObterFuncionario();
                 empresaDTO.totalFuncionarios = empresa.totalFuncionarios;

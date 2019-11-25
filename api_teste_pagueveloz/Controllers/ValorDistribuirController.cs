@@ -1,9 +1,9 @@
 ﻿using System.Net;
 using System.Collections.Generic;
 using System.Web.Http;
-using api_teste_pagueveloz.Services;
+using Desafio.Services;
 
-namespace api_teste_pagueveloz.Controllers {
+namespace Desafio.Controllers {
     public class ValorDistribuirController : ApiController {
         public ValorDistribuirServices valor_distribuir_services = new ValorDistribuirServices();
 

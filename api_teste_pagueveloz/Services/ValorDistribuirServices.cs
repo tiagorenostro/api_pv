@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
-using api_teste_pagueveloz.Models;
+using Desafio.Models;
+using api_teste_pagueveloz.Repositorio;
 
-namespace api_teste_pagueveloz.Services {
+namespace Desafio.Services {
     public class ValorDistribuirServices {
-        private readonly ConexaoDb conexao = new ConexaoDb();
+        private Repositorio Repositorio = new Repositorio();
         public Empresa empresa = new Empresa();
         
         public void SalvaSaldo(Dictionary<string, decimal> valor) {
@@ -14,7 +15,7 @@ namespace api_teste_pagueveloz.Services {
                     totalDisponibilizado = valor["valor_distribuir"]
                 };
 
-                conexao.SalvaDados(0, 1, "Empresa/", salvaSaldo);
+                Repositorio.Atualizar(1, "Empresa/", salvaSaldo);
             }
         }
     }

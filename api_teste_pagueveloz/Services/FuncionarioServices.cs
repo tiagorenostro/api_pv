@@ -1,27 +1,23 @@
 ﻿using System.Collections.Generic;
-using api_teste_pagueveloz.Models;
-using api_teste_pagueveloz.DTO;
+using Desafio.Models;
+using Desafio.DTO;
+using api_teste_pagueveloz.Repositorio;
 
-namespace api_teste_pagueveloz.Services {
+namespace Desafio.Services {
     public class FuncionarioServices {
-
-        private readonly ConexaoDb conexao = new ConexaoDb();
         private List<FuncionarioDTO> listaFuncDTO = new List<FuncionarioDTO>();
+        private Repositorio Repositorio = new Repositorio();
         public FuncionarioDTO funcDTO;
 
         public List<FuncionarioDTO> ObterFuncionario() {
-            List<Funcionario> listaFuncionario = conexao.BuscaFuncionarioDb();
+            List<Funcionario> listaFuncRepo = (List<Funcionario>)Repositorio.ObterFuncionario();
 
-            for (int i = 0; i < listaFuncionario.Count; i++) {
+            for (int i = 0; i < listaFuncRepo.Count; i++) {
                 funcDTO = new FuncionarioDTO();
-                if (listaFuncionario[i] == null) {
-                    listaFuncionario.Remove(listaFuncionario[i]);
-                } else {
-                    funcDTO.matricula = listaFuncionario[i].matricula;
-                    funcDTO.nome = listaFuncionario[i].nome;
-                    funcDTO.valorParticipacao = listaFuncionario[i].valorParticipacao;
-                    listaFuncDTO.Add(funcDTO);
-                }
+                funcDTO.matricula = listaFuncRepo[i].matricula;
+                funcDTO.nome = listaFuncRepo[i].nome;
+                funcDTO.valorParticipacao = listaFuncRepo[i].valorParticipacao;
+                listaFuncDTO.Add(funcDTO);
             }
             return listaFuncDTO;
         }
@@ -44,7 +40,7 @@ namespace api_teste_pagueveloz.Services {
                     dataAdmissao = dadosFuncionario[i]["data_de_admissao"]
                 };
 
-                conexao.SalvaDados(0, idFuncionario, nomeChave, salvaFuncionario);
+                Repositorio.Inserir(idFuncionario, nomeChave, salvaFuncionario);
                 idFuncionario++;
             }
         }

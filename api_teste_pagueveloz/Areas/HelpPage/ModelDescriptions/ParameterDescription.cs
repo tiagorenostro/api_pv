@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace api_teste_pagueveloz.Areas.HelpPage.ModelDescriptions
+namespace Desafio.Areas.HelpPage.ModelDescriptions
 {
     public class ParameterDescription
     {

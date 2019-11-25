@@ -1,23 +1,27 @@
 ﻿<Properties StartupConfiguration="{4F920E49-0E52-4732-B30C-59CD8A85E9CC}|">
-  <MonoDevelop.Ide.ItemProperties.api__teste__pagueveloz PreferredExecutionTarget="/Applications/Safari.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="api_teste_pagueveloz/Services/CalculaParticipacaoServices.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="api_teste_pagueveloz/DataContext/ConexaoDb.cs">
     <Files>
-      <File FileName="api_teste_pagueveloz/Services/FuncionarioServices.cs" Line="11" Column="1" />
-      <File FileName="api_teste_pagueveloz/DTO/FuncionarioDTO.cs" Line="7" Column="1" />
-      <File FileName="api_teste_pagueveloz/Controllers/CalculaParticipacaoController.cs" Line="20" Column="1" />
-      <File FileName="api_teste_pagueveloz/Services/CalculaParticipacaoServices.cs" Line="13" Column="42" />
+      <File FileName="api_teste_pagueveloz/Services/CalculaParticipacaoServices.cs" Line="19" Column="59" />
+      <File FileName="api_teste_pagueveloz/Services/FuncionarioServices.cs" Line="24" Column="1" />
+      <File FileName="api_teste_pagueveloz/Services/ValorDistribuirServices.cs" Line="23" Column="1" />
+      <File FileName="api_teste_pagueveloz/Controllers/CalculaParticipacaoController.cs" Line="1" Column="1" />
+      <File FileName="api_teste_pagueveloz/Controllers/ValorDistribuirController.cs" Line="1" Column="1" />
+      <File FileName="api_teste_pagueveloz/DataContext/ConexaoDb.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="api_teste_pagueveloz" expanded="True">
-            <Node name="api_teste_pagueveloz" expanded="True">
+            <Node name="Desafio" expanded="True">
+              <Node name="App_Start" expanded="True" />
               <Node name="Controllers" expanded="True" />
+              <Node name="DataContext" expanded="True">
+                <Node name="ConexaoDb.cs" selected="True" />
+              </Node>
               <Node name="DTO" expanded="True" />
               <Node name="Models" expanded="True" />
-              <Node name="Services" expanded="True">
-                <Node name="CalculaParticipacaoServices.cs" selected="True" />
-              </Node>
+              <Node name="Repositorio" expanded="True" />
+              <Node name="Services" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -25,6 +29,7 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Desafio PreferredExecutionTarget="/Applications/Safari.app" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
 using System.Net;
-using api_teste_pagueveloz.Services;
-using api_teste_pagueveloz.DTO;
+using Desafio.Services;
+using Desafio.DTO;
 
-namespace api_teste_pagueveloz.Controllers{
+namespace Desafio.Controllers{
     public class FuncionarioController : ApiController {
         public List<FuncionarioDTO> listaFuncDTO = new List<FuncionarioDTO>();
         private readonly FuncionarioServices funcServices = new FuncionarioServices();

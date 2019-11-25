@@ -1,15 +1,15 @@
 ﻿using System;
 
-namespace api_teste_pagueveloz.Models {
+namespace Desafio.Models {
     public class Funcionario {
-        public int idFuncionario;
-        public string matricula;
-        public string nome;
-        public string area;
-        public string cargo;
-        public decimal salarioBruto;
-        public string dataAdmissao;
-        public decimal valorParticipacao;
+        public int idFuncionario { get; set; }
+        public string matricula { get; set; }
+        public string nome { get; set; }
+        public string area { get; set; }
+        public string cargo { get; set; }
+        public decimal salarioBruto { get; set; }
+        public string dataAdmissao { get; set; }
+        public decimal valorParticipacao { get; set; }
 
         public int DefinirPesoAreaAtuacao() {
             string[] areaVet = {"Diretoria", "Contabilidade",

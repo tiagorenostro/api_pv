@@ -1,6 +1,6 @@
 using System;
 
-namespace api_teste_pagueveloz.Areas.HelpPage
+namespace Desafio.Areas.HelpPage
 {
     /// <summary>
     /// This represents an invalid sample on the help page. There's a display template named InvalidSample associated with this class.

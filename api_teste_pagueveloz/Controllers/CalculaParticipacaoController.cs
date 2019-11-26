@@ -5,8 +5,8 @@ using Desafio.DTO;
 
 namespace Desafio.Controllers {
     public class CalculaParticipacaoController : ApiController {
-        public List<EmpresaDTO> listaEmpresaDTO = new List<EmpresaDTO>();
         private readonly CalculaParticipacaoService calculaParticipacaoServ = new CalculaParticipacaoService();
+        public List<EmpresaDTO> listaEmpresaDTO = new List<EmpresaDTO>();
 
         [HttpGet]
         [Route("api/Empresa/Calcula")]

@@ -6,8 +6,8 @@ using Desafio.DTO;
 
 namespace Desafio.Controllers{
     public class FuncionarioController : ApiController {
-        public List<FuncionarioDTO> listaFuncDTO = new List<FuncionarioDTO>();
         private readonly FuncionarioServices funcServices = new FuncionarioServices();
+        public List<FuncionarioDTO> listaFuncDTO = new List<FuncionarioDTO>();
 
         [HttpGet]
         [Route("api/Empresa/Funcionario")]
